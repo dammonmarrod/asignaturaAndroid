@@ -1,4 +1,4 @@
-package com.example.reproductor_musica_version5;
+package com.example.reproductor_musica_versionfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -8,8 +8,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class EleccionReproduccion extends AppCompatActivity implements View.OnClickListener {
@@ -26,9 +28,8 @@ public class EleccionReproduccion extends AppCompatActivity implements View.OnCl
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             //Muestra las ventanas emergentes para aceptar los permisos de escritura y lectura de audio y grabación de audio
             ActivityCompat.requestPermissions(EleccionReproduccion.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO}, 1000);
+
         }
-
-
 
         /*Any app that declares the WRITE_EXTERNAL_STORAGE permission is implicitly granted this permission.
         This permission is enforced starting in API level 19. Before API level 19, this permission is not enforced
@@ -42,6 +43,17 @@ public class EleccionReproduccion extends AppCompatActivity implements View.OnCl
         }
         */
 
+        //Hilo para apagar la app en caso de que no se acepten los permisos.
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                    mensaje();
+                    finishAffinity();
+                }
+            }
+        }, 5000);
+
         //Asociamos cada boton con su parte gráfica
         btReproduccionListView = findViewById(R.id.btReproduccionListView);
         btReproduccionListView.setOnClickListener(this);
@@ -52,8 +64,10 @@ public class EleccionReproduccion extends AppCompatActivity implements View.OnCl
         btGrabacion = findViewById(R.id.btGrabacion);
         btGrabacion.setOnClickListener(this);
 
+    }
 
-
+    public void mensaje(){
+        Toast.makeText(this, "Debes aceptar los permisos para utilizar la aplicación.", Toast.LENGTH_SHORT).show();
     }
 
     @Override
