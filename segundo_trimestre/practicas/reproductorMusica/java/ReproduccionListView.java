@@ -1,4 +1,4 @@
-package com.example.reproductor_musica_version5;
+package com.example.reproductor_musica_versionfinal;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -21,10 +21,6 @@ public class ReproduccionListView extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproduccion_list_view);
 
-        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-            //Muestra las ventanas emergentes para aceptar los permisos de escritura y lectura de audio y grabación de audio
-            ActivityCompat.requestPermissions(ReproduccionListView.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO}, 1000);
-        }
 
         btCarpetaSDCARD = findViewById(R.id.btCarpetaSDCARD);
         btCarpetaSDCARD.setOnClickListener(this);
