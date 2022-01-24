@@ -1,10 +1,10 @@
-package com.example.reproductor_musica_version5;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.reproductor_musica_versionfinal;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
