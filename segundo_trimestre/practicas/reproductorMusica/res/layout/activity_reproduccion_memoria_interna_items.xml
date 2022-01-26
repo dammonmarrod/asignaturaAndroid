@@ -23,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
-        android:text="Hola"
+        android:text="Nombre de canciones"
         android:layout_toEndOf="@id/icono"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
