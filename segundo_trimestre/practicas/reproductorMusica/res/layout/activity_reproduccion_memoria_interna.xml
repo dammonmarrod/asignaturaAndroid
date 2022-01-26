@@ -12,7 +12,7 @@
         android:textColor="@color/purple_700"
         android:layout_margin="10px"
         android:textStyle="bold"
-        android:textSize="10pt"/>
+        android:textSize="15pt"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
