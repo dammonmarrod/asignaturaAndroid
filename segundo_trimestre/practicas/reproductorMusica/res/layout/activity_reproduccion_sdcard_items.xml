@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:background="@color/purple_700">
+    android:background="@color/purple_700"
+    >
 
     <ImageView
         android:id="@+id/icono"
@@ -22,7 +23,7 @@
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
-        android:text="Hola"
+        android:text="Nombre de canciones"
         android:layout_toEndOf="@id/icono"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
