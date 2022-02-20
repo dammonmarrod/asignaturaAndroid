@@ -61,7 +61,7 @@ public class F_pantalla_BuildDuck_nombre extends AppCompatActivity {
             //cerramos la base de datos
             BD.close();
         }else{//Si no hay un valor en la base de datos
-            System.out.println("No hay nada en la base de datos");
+            textView.setText("No hay ninguna puntuacion guardada. ");
             BD.close();
         }
 
@@ -72,12 +72,6 @@ public class F_pantalla_BuildDuck_nombre extends AppCompatActivity {
         mediaPlayer.start();
         //Reproducción en bucle
         mediaPlayer.setLooping(true);
-
-
-
-
-
-
 
     }
 
